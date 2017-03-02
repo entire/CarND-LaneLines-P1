@@ -15,49 +15,53 @@ To complete the project, two files will be submitted: a file containing project 
 To meet specifications in the project, take a look at the requirements in the [project rubric](https://review.udacity.com/#!/rubrics/322/view)
 
 
-1. The pipeline
+The pipeline
 ---
 
-1. turned image to hsv
+First the image is converted to hsv
 
 ![title](test_images/figure_1.png)
 
-2. filtered it with white only
+Then filtered it with white only
 
 ![title](test_images/figure_2.png)
 
-3. applied gaussian blur
+Applied gaussian blur
 
 ![title](test_images/figure_3.png)
 
-4. applied canny edge detection
+Applied canny edge detection
 
 ![title](test_images/figure_4.png)
 
-5. defined region of interest
+Defined region of interest
 
 ![title](test_images/figure_5.png)
 
-6. setup hough lines & laid them over
+Setup hough lines & laid them over initial image
 
 ![title](test_images/figure_6.png)
 
-7. extrapolated lines in draw_lines
+Extrapolated lines in draw_lines
 
-    8. got the slope and length of each line
-    9. separated lines into right and left based on slope being negative or positive
-    10. if slope was between 0.4 and -0.4, meaning too shallow, the line was discarded
-    11. if the slope's absolute value was greater than 0.9 it was also discarded
-    12. added x's and y's and slopes and lengths to it's own list
-    13. calculated a weighted slope based on the length of the line
-    14. calculated the change in percentage of the previous slope with current slop
-    15. if previous slope was great than 1.5 percent for either lane, it was discarded
-    16. then took the remaining x's in the right and left lane and ran a polynomial fit
-    17. then averaged out the current x's with the previous x's so the transition is smoother
-    18. then showed the line
-    19. if any of the parameters failed, the previously cached line was shown
+  This took the majority of time and is more detailed. You can see the full design of the program in the `draw_lines` function.
 
-    ![title](test_images/figure_7.png)
+  1. got the slope and length of each line
+  2. separated lines into right and left based on slope being negative or positive
+  3. if slope was between 0.4 and -0.4, meaning too shallow, the line was discarded
+  4. if the slope's absolute value was greater than 0.9 it was also discarded
+  5. added x's and y's and slopes and lengths to it's own list
+  6. calculated a weighted slope based on the length of the line
+  7. calculated the change in percentage of the previous slope with current slop
+  8. if previous slope was great than 1.5 percent for either lane, it was discarded
+  9. then took the remaining x's in the right and left lane and ran a polynomial fit
+  10. then averaged out the current x's with the previous x's so the transition is smoother
+  11. then showed the line
+  12. if any of the parameters failed, the previously cached line was shown
+
+Here is what the end result looked like:
+
+![title](test_images/figure_7.png)
 
 Potential shortcomings
 ---
@@ -72,10 +76,11 @@ Potential shortcomings
 - it does not work well when light is shining right at the vehicle
 - it does not work well when other vehicles, cars, bikes, people are covering the lanes.
 
-Possible improvements in the future
+Possible improvements for the future
 ---
 
-- use EKF or particle filtering instead
+- general refactoring, and better code
+- use EKF or particle filtering
 - use RANSAC to make better guesses of lane lines
 - multi-dimensional poly fit for curved lines, currently only linear approx.
 - find better hough line parameters
