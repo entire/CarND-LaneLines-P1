@@ -1,13 +1,30 @@
-### 1. Describe your pipeline
+## 1. Describe your pipeline
 
 1. turned image to hsv
+
+![title](test_images/figure_1.png)
+
 2. filtered it with white only
+
+![title](test_images/figure_2.png)
+
 3. applied gaussian blur
+
+![title](test_images/figure_3.png)
+
 4. applied canny edge detection
+
+![title](test_images/figure_4.png)
+
 5. defined region of interest
-6. setup hough line
-7. laid hough line over initial image
-8. in draw_lines
+
+![title](test_images/figure_5.png)
+
+6. setup hough lines & laid them over
+
+![title](test_images/figure_6.png)
+
+7. extrapolated lines in draw_lines
 
     8. got the slope and length of each line
     9. separated lines into right and left based on slope being negative or positive
@@ -22,7 +39,9 @@
     18. then showed the line
     19. if any of the parameters failed, the previously cached line was shown
 
-### 2. Identify potential shortcomings
+    ![title](test_images/figure_7.png)
+
+## 2. Identify potential shortcomings
 
 - it will definitely not work with the challenge currently
 - it does not work for rain and dust
@@ -34,7 +53,7 @@
 - it does not work well when light is shining right at the vehicle
 - it does not work well when other vehicles, cars, bikes, people are covering the lanes.
 
-### 3. Possible improvements
+## 3. Possible improvements
 
 - use EKF or particle filtering instead
 - use RANSAC to make better guesses of lane lines
