@@ -15,7 +15,8 @@ To complete the project, two files will be submitted: a file containing project 
 To meet specifications in the project, take a look at the requirements in the [project rubric](https://review.udacity.com/#!/rubrics/322/view)
 
 
-## 1. The pipeline
+1. The pipeline
+---
 
 1. turned image to hsv
 
@@ -58,7 +59,8 @@ To meet specifications in the project, take a look at the requirements in the [p
 
     ![title](test_images/figure_7.png)
 
-## 2. Potential shortcomings
+Potential shortcomings
+---
 
 - it will definitely not work with the challenge currently
 - it does not work for rain and dust
@@ -70,7 +72,8 @@ To meet specifications in the project, take a look at the requirements in the [p
 - it does not work well when light is shining right at the vehicle
 - it does not work well when other vehicles, cars, bikes, people are covering the lanes.
 
-## 3. Possible improvements in the future
+Possible improvements in the future
+---
 
 - use EKF or particle filtering instead
 - use RANSAC to make better guesses of lane lines
